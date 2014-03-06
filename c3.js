@@ -658,7 +658,7 @@
             } else {
                 padding = diff * 0.01;
             }
-            return padding*__padding_inner;
+            return padding * __padding_inner;
         }
         function getXDomain(targets) {
             var xDomain = [getXDomainMin(targets), getXDomainMax(targets)],
