@@ -36,7 +36,8 @@
             __size_height = getConfig(['size', 'height'], null);
 
         var __padding_left = getConfig(['padding', 'left'], null),
-            __padding_right = getConfig(['padding', 'right'], null);
+            __padding_right = getConfig(['padding', 'right'], null),
+            __padding_inner = getConfig(['padding', 'inner'], 1);
 
         var __zoom_enabled = getConfig(['zoom', 'enabled'], false),
             __zoom_extent = getConfig(['zoom', 'extent'], null),
@@ -656,7 +657,7 @@
             } else {
                 padding = diff * 0.01;
             }
-            return padding;
+            return padding*__padding_inner;
         }
         function getXDomain(targets) {
             var xDomain = [getXDomainMin(targets), getXDomainMax(targets)],
