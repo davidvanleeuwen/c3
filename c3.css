@@ -63,7 +63,7 @@
 
 #chart .-bar._expanded_ {
   stroke-width: 1px;
-  fill-opacity: 0.6;
+  fill-opacity: 0.75;
 }
 /* TODO: use this*/
 #chart .-bar._selected_ {
@@ -73,7 +73,6 @@
 #chart .selected-bar {
   fill: white;
   stroke-width: 2px;
-}
 
 /*-- Arc --*/
 
