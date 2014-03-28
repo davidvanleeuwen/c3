@@ -1177,13 +1177,14 @@
         }
 
         //-- Tooltip --//
-
+        var lastTooltip = {};
         function showTooltip(selectedData, mouse) {
             var tWidth, tHeight;
             var svgLeft, tooltipLeft, tooltipRight, tooltipTop, chartRight;
             var forArc = hasArcType(c3.data.targets);
             var valueFormat = forArc ? defaultArcValueFormat : defaultValueFormat;
             var dataToShow = selectedData.filter(function (d) { return d && isValue(d.value); });
+            lastTooltip = {selectedData: selectedData, mouse: mouse};
             if (! __tooltip_show) { return; }
             // don't show tooltip when no data
             if (dataToShow.length === 0) { return; }
@@ -2337,8 +2338,12 @@
             subY.domain(y.domain());
             subY2.domain(y2.domain());
 
-            // tooltip
-            tooltip.style("display", "none");
+            // Update tooltip
+            if(lastTooltip.selectedData && tooltip.style('display') != 'none') {
+              var selectedValue = c3.data.get(lastTooltip.selectedData[0].id)[lastTooltip.selectedData[0].index];
+              lastTooltip.selectedData[0].value = selectedValue;
+              showTooltip(lastTooltip.selectedData, lastTooltip.mouse);
+            }
 
             // grid
             main.select('line.xgrid-focus')
