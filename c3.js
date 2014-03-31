@@ -3937,4 +3937,6 @@
         return typeof v !== 'undefined';
     }
 
+    window.c3 = c3;
+
 })(window);
