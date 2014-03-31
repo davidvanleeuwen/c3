@@ -98,7 +98,7 @@
 
         var __size_width = getConfig(['size', 'width']),
             __size_height = getConfig(['size', 'height']);
-            
+
         var __padding_left = getConfig(['padding', 'left']),
             __padding_right = getConfig(['padding', 'right']),
             __padding_inner = getConfig(['padding', 'inner'], 1);
@@ -3936,12 +3936,5 @@
     function isDefined(v) {
         return typeof v !== 'undefined';
     }
-
-    if (typeof window.define === "function" && window.define.amd) {
-        window.define(c3);
-    } else {
-        window.c3 = c3;
-    }
-    // TODO: module.exports
 
 })(window);
